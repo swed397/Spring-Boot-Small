@@ -4,10 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class LiqueBaseBaseMtcTetaApplication {
-
+public class MySmallSpringBoot {
     public static void main(String[] args) {
-        SpringApplication.run(LiqueBaseBaseMtcTetaApplication.class, args);
+        SpringApplication.run(MySmallSpringBoot.class, args);
     }
 
 }

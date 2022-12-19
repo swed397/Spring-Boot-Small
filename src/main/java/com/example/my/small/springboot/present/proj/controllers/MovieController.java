@@ -5,6 +5,8 @@ import com.example.my.small.springboot.present.proj.mappers.MovieMapper;
 import com.example.my.small.springboot.present.proj.services.MovieService;
 import com.example.my.small.springboot.present.proj.dtos.movies.MovieCreateDto;
 import com.example.my.small.springboot.present.proj.dtos.movies.MovieDto;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +17,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/movies")
+@Api
 public class MovieController {
 
     public final MovieService service;
@@ -27,6 +30,7 @@ public class MovieController {
     }
 
     @GetMapping("")
+    @ApiOperation("Get all movies from bd")
     public ResponseEntity<List> findAll() {
         return ResponseEntity.ok(service.findAll().stream()
                 .map(movieMapper::toDto)
@@ -34,11 +38,13 @@ public class MovieController {
     }
 
     @GetMapping("/{id}")
+    @ApiOperation("Get one movie from bd by id")
     public ResponseEntity<MovieDto> findById(@PathVariable Long id) {
         return ResponseEntity.of(service.get(id).map(movieMapper::toDto));
     }
 
     @PostMapping("")
+    @ApiOperation("Insert new film in bd")
     public ResponseEntity<MovieDto> create(@RequestBody @Valid MovieCreateDto movieCreateDto) {
         Movie movie = service.create(movieMapper.toEntity(movieCreateDto));
         return ResponseEntity.ok(movieMapper.toDto(movie));
