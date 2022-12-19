@@ -1,0 +1,9 @@
+com\example\liquebasebasemtcteta\LiqueBaseBaseMtcTetaApplication.class
+com\example\liquebasebasemtcteta\repositories\MovieRepository.class
+com\example\liquebasebasemtcteta\mappers\MovieMapper.class
+com\example\liquebasebasemtcteta\controllers\MovieController.class
+dtos\MovieCreateDto.class
+dtos\MovieDto.class
+com\example\liquebasebasemtcteta\entities\Movie.class
+com\example\liquebasebasemtcteta\mappers\MovieMapperImpl.class
+com\example\liquebasebasemtcteta\services\MovieService.class
