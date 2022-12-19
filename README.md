@@ -1,3 +1,3 @@
 # Spring-Boot-Small
-My small present project
+My small present project.
 main branch - develop
