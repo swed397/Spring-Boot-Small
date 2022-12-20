@@ -31,7 +31,7 @@ public class MovieService implements Crud<Movie> {
     }
 
     @Override
-    public Movie create(Movie entity) {
+    public Movie create() {
         return new Movie();
     }
 

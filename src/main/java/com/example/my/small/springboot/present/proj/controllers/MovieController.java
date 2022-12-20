@@ -33,7 +33,7 @@ public class MovieController {
 
     @GetMapping("")
     @ApiOperation("Get all movies from bd")
-    public ResponseEntity<List> findAll() {
+    public ResponseEntity<List<MovieDto>> findAll() {
         log.trace("Getting all films");
         return ResponseEntity.ok(service.findAll().stream()
                 .map(movieMapper::toDto)
@@ -49,9 +49,9 @@ public class MovieController {
 
     @PostMapping("")
     @ApiOperation("Insert new film in bd")
-    public ResponseEntity<MovieDto> create(@RequestBody @Valid MovieCreateDto movieCreateDto) {
+    public ResponseEntity<MovieDto> save(@RequestBody @Valid MovieCreateDto movieCreateDto) {
         log.trace("Created new film with name: " + movieCreateDto.getTitle());
-        Movie movie = service.create(movieMapper.toEntity(movieCreateDto));
+        Movie movie = service.save(movieMapper.toEntity(movieCreateDto));
         return ResponseEntity.ok(movieMapper.toDto(movie));
     }
 }
