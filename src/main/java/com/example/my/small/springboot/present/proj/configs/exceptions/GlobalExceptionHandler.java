@@ -1,4 +1,4 @@
-package com.example.my.small.springboot.present.proj.configs;
+package com.example.my.small.springboot.present.proj.configs.exceptions;
 
 import com.example.my.small.springboot.present.proj.dtos.errors.FieldValidationErrorDto;
 import com.example.my.small.springboot.present.proj.dtos.errors.RequestValidationErrors;
@@ -18,6 +18,7 @@ public class GlobalExceptionHandler {
         List<FieldValidationErrorDto> errorDtos = exception.getFieldErrors().stream()
                 .map(fieldError -> new FieldValidationErrorDto(fieldError.getField(), fieldError.getDefaultMessage()))
                 .toList();
+
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
                 .body(new RequestValidationErrors(errorDtos));
