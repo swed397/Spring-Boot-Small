@@ -20,4 +20,27 @@
         </createTable>
     </changeSet>
 
+    <changeSet id="create_users_and_roles_tables" author="I">
+        <createTable tableName="users" schemaName="movies">
+            <column name="id" type="bigserial">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="user_name" type="varchar">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="varchar">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="roles" schemaName="movies">
+            <column name="id" type="bigserial">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
 </databaseChangeLog>

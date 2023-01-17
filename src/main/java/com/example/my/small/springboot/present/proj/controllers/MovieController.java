@@ -1,10 +1,10 @@
 package com.example.my.small.springboot.present.proj.controllers;
 
+import com.example.my.small.springboot.present.proj.dtos.movies.MovieCreateDto;
+import com.example.my.small.springboot.present.proj.dtos.movies.MovieDto;
 import com.example.my.small.springboot.present.proj.entities.Movie;
 import com.example.my.small.springboot.present.proj.mappers.MovieMapper;
 import com.example.my.small.springboot.present.proj.services.MovieService;
-import com.example.my.small.springboot.present.proj.dtos.movies.MovieCreateDto;
-import com.example.my.small.springboot.present.proj.dtos.movies.MovieDto;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
