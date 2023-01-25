@@ -23,4 +23,9 @@ public class Movie {
 
     @Column(name = "movie_year")
     private Integer year;
+
+    public Movie(String title, Integer year) {
+        this.title = title;
+        this.year = year;
+    }
 }

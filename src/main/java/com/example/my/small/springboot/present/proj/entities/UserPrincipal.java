@@ -26,4 +26,10 @@ public class UserPrincipal {
     //ToDo Fix circular
 //    @ManyToMany(mappedBy = "userPrincipal")
 //    private Set<Role> roles = new HashSet<>();
+
+
+    public UserPrincipal(String userName, String password) {
+        this.userName = userName;
+        this.password = password;
+    }
 }
