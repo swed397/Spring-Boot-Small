@@ -5,6 +5,7 @@ import com.example.my.small.springboot.present.proj.interfaces.Crud;
 import com.example.my.small.springboot.present.proj.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -24,16 +25,19 @@ public class UserService implements Crud<UserPrincipal> {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Optional<UserPrincipal> get(Long id) {
-        return Optional.of(repository.getById(id));
+        return repository.findById(id);
     }
 
     @Override
+    @Transactional
     public UserPrincipal save(UserPrincipal entity) {
         return repository.save(entity);
     }
 
     @Override
+    @Transactional
     public void delete(UserPrincipal entity) {
         repository.delete(entity);
     }
