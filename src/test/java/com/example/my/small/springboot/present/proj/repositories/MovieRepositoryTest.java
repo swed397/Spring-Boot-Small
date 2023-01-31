@@ -4,11 +4,13 @@ import com.example.my.small.springboot.present.proj.entities.Movie;
 import com.example.my.small.springboot.present.proj.services.MovieService;
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 @SpringBootTest
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -20,7 +22,7 @@ public class MovieRepositoryTest {
     @Autowired
     private MovieRepository movieRepository;
 
-    @BeforeAll
+    @BeforeEach
     public void setUp() {
         movieRepository.deleteAll();
     }
