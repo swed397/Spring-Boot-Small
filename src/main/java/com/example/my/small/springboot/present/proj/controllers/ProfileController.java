@@ -40,7 +40,7 @@ public class ProfileController {
     public String updateAvatarImage(Authentication authentication, @RequestParam("avatar") MultipartFile avatar) throws InternalServerError {
         logger.info("File name {}, file content type {}, file size {}",
                 avatar.getOriginalFilename(), avatar.getContentType(), avatar.getSize());
-        System.out.println("ZASHLO");
+
         try {
             avatarImageService.save(authentication.getName(), avatar.getContentType(), avatar.getInputStream());
         } catch (IOException e) {
