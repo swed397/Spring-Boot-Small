@@ -47,4 +47,9 @@ public class UserService implements Crud<UserPrincipal> {
     public List<UserPrincipal> findAllByName(String name) {
         return repository.findAllByUserName(name);
     }
+
+    @Transactional
+    public Optional<UserPrincipal> findByUserName(String userName) {
+        return repository.findByUserName(userName);
+    }
 }

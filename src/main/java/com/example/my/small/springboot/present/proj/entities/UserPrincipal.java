@@ -27,6 +27,8 @@ public class UserPrincipal {
 //    @ManyToMany(mappedBy = "userPrincipal")
 //    private Set<Role> roles = new HashSet<>();
 
+    @OneToOne(mappedBy = "userPrincipal", cascade = CascadeType.REMOVE)
+    private AvatarImage avatarImage;
 
     public UserPrincipal(String userName, String password) {
         this.userName = userName;
