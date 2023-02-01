@@ -85,4 +85,21 @@ public class AvatarImageService implements Crud<AvatarImage> {
             throw new IllegalStateException(ex);
         }
     }
+
+    public Optional<String> getContentTypeByUser(String userName) {
+        return repository.findByUserPrincipal_UserName(userName).map(AvatarImage::getContentType);
+    }
+
+    public Optional<byte[]> getAvatarByteArray(String userName) {
+        return repository.findByUserPrincipal_UserName(userName)
+                .map(AvatarImage::getFilename)
+                .map(fileName -> {
+                    try {
+                        return Files.readAllBytes(Path.of(contentLocator, fileName));
+                    } catch (IOException ex) {
+                        logger.error("Can't read file {}", fileName, ex);
+                        throw new IllegalStateException(ex);
+                    }
+                });
+    }
 }
